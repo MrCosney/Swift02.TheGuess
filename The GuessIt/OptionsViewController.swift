@@ -42,15 +42,14 @@ class OptionsViewController: Main {
     
     private func setupStackView() {
         //MARK: TODO добавить размер switch от размера экрана
-        
-        let scaler = min(view.bounds.height, view.bounds.width)
+
         let labels = [voliumeLabel, buttonVoliumeLabel]
         let labelsText = ["Музыка", "Эффекты"]
         let switchers = [buttomVoliumeSwitch, voliumeSwitch]
         
         //Setup Each Option Label
         for i in 0..<labels.count {
-            labels[i].font = UIFont.boldSystemFont(ofSize: scaler / 15)
+            labels[i].font = UIFont.boldSystemFont(ofSize: Main.fontScaler / 15)
             labels[i].text = labelsText[i]
             labels[i].textColor = .white
         }

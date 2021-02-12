@@ -9,15 +9,18 @@ import UIKit
 import AVFoundation
 
 class Main: UIViewController {
-    // Main Super Class
-    
     //MARK: - Properties
-    
     let imageView =          UIImageView()
     let returnButton =       UIButton()
     // Create StackView
-    let topStackView =       UIStackView()
     let bottomStackView =    UIStackView()
+    let topStackView =       UIStackView()
+    // Game Properties
+    //FIXME: Переделать в Enum?
+    static var incorrectMovesAllowed = 7
+    static var listOfWords = [String]()
+    //Font Propetires calculates in first View controller
+    static var fontScaler: CGFloat = 12
     
     // Propeties for Audio 
     let sound = URL(fileURLWithPath: Bundle.main.path(forResource: "buttonSound", ofType: "mp3") ?? "nil")
@@ -38,19 +41,18 @@ class Main: UIViewController {
     
     func updateReturnButton() {
         //TODO: Find the corret position for button
-        let scaler = min(view.bounds.size.width, view.bounds.size.height)
-        returnButton.frame = CGRect(x: 25, y: 25, width: scaler / 5, height: scaler / 5)
-    }
-
-    @objc func returnButtonPressed() {
-        //move it to superclass
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: sound)
-            audioPlayer.play()
-        } catch {}
-        navigationController?.popViewController(animated: false)
+        let sizeScaler = min(view.bounds.size.width, view.bounds.size.height)
+        returnButton.frame = CGRect(x: 25, y: 25, width: sizeScaler / 5, height: sizeScaler / 5)
     }
     
+    @objc func returnButtonPressed() {
+        //FIXME: Fix the Audio problem
+//        do {
+//            audioPlayer = try AVAudioPlayer(contentsOf: sound)
+//            audioPlayer.play()
+//        } catch {}
+        navigationController?.popViewController(animated: false)
+    }
     
     func updateUI(to size: CGSize) {
         topStackView.axis = size.height < size.width ? .horizontal: .vertical
@@ -64,6 +66,7 @@ class Main: UIViewController {
         topStackView.distribution = .fillEqually
         topStackView.frame = view.bounds
         topStackView.axis = .vertical
+        topStackView.backgroundColor = .black
         
         //Setup Bottom Stack View
         bottomStackView.axis = .vertical
@@ -76,24 +79,22 @@ class Main: UIViewController {
     }
     
     //MARK: - Create And Setup Interface Buttons
-//    func createButtons(buttons: [UIButton], titles: [String]) {
-//        let scaler = min(view.bounds.height, view.bounds.width)
-//
-//        for i in 0..<buttons.count {
-//            if titles[i] != "" {
-//                buttons[i].setTitleColor(.black, for: [])
-//                buttons[i].backgroundColor = .yellow
-//                buttons[i].layer.cornerRadius = 50
-//                buttons[i].tintColor = .black
-//                buttons[i].titleLabel?.font = UIFont.boldSystemFont(ofSize: scaler / 15)
-//                buttons[i].setTitle(titles[i], for: [])
-//                buttons[i].titleLabel?.textAlignment = .center
-//                buttons[i].translatesAutoresizingMaskIntoConstraints = false
-//            } else {buttons[i].isEnabled = false}
-//            bottomStackView.addArrangedSubview(buttons[i])
-//        }
-//    }
-    
+    func createButtons(buttons: [UIButton], titles: [String]) {
+        for i in 0..<buttons.count {
+            if titles[i] != "" {
+                buttons[i].setTitleColor(.black, for: [])
+                buttons[i].backgroundColor = .yellow
+                buttons[i].layer.cornerRadius = 50
+                buttons[i].tintColor = .black
+                buttons[i].titleLabel?.font = UIFont.boldSystemFont(ofSize: Main.fontScaler)
+                buttons[i].setTitle(titles[i], for: [])
+                buttons[i].titleLabel?.textAlignment = .center
+                buttons[i].translatesAutoresizingMaskIntoConstraints = false
+            } else {buttons[i].isEnabled = false}
+            bottomStackView.addArrangedSubview(buttons[i])
+        }
+    }
+    //MARK: - Navigation and Transition Configuartion
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         updateUI(to: size)
@@ -103,4 +104,6 @@ class Main: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
+    
+    
 }
