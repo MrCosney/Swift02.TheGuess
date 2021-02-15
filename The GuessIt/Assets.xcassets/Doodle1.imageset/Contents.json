@@ -1,17 +1,16 @@
 {
   "images" : [
     {
-      "filename" : "gameImage1x1x.pdf",
+      "filename" : "gameImage1x2x.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "gameImage1x2x.pdf",
+      "filename" : "gameImage1x3x.pdf",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "gameImage1x3x.pdf",
       "idiom" : "universal",
       "scale" : "3x"
     }

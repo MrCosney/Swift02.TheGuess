@@ -10,21 +10,22 @@ import AVFoundation
 
 class Main: UIViewController {
     //MARK: - Properties
-    let imageView =          UIImageView()
-    let returnButton =       UIButton()
+    public let imageView =          UIImageView()
+    public let returnButton =       UIButton()
     // Create StackView
-    let bottomStackView =    UIStackView()
-    let topStackView =       UIStackView()
+    public let bottomStackView =    UIStackView()
+    public let topStackView =       UIStackView()
     // Game Properties
     //FIXME: Переделать в Enum?
+    static var buttonsAlphobet = "_ЙЦУКЕНГШЩЗХЪЁ___ФЫВАПРОЛДЖЭ_____ЯЧСМИТЬБЮ___"
     static var incorrectMovesAllowed = 7
-    static var listOfWords = [String]()
+    static var listOfWords: [String] = []
     //Font Propetires calculates in first View controller
     static var fontScaler: CGFloat = 12
     
     // Propeties for Audio 
-    let sound = URL(fileURLWithPath: Bundle.main.path(forResource: "buttonSound", ofType: "mp3") ?? "nil")
-    var audioPlayer = AVAudioPlayer()
+    public let sound = URL(fileURLWithPath: Bundle.main.path(forResource: "buttonSound", ofType: "mp3") ?? "nil")
+    public var audioPlayer = AVAudioPlayer()
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -32,20 +33,20 @@ class Main: UIViewController {
     
     //MARK: - Methods
     //MARK: - Create and Setup Return Button
-    func createReturnButton() {
-        returnButton.backgroundColor = .yellow
+    open func createReturnButton() {
+        returnButton.setBackgroundImage(UIImage(named: "returnButton"), for: [])
         view.addSubview(returnButton)
         updateReturnButton()
         returnButton.addTarget(self, action: #selector(returnButtonPressed), for: .touchUpInside)
     }
     
-    func updateReturnButton() {
+    open func updateReturnButton() {
         //TODO: Find the corret position for button
         let sizeScaler = min(view.bounds.size.width, view.bounds.size.height)
         returnButton.frame = CGRect(x: 25, y: 25, width: sizeScaler / 5, height: sizeScaler / 5)
     }
     
-    @objc func returnButtonPressed() {
+    @objc open func returnButtonPressed() {
         //FIXME: Fix the Audio problem
 //        do {
 //            audioPlayer = try AVAudioPlayer(contentsOf: sound)
@@ -54,40 +55,48 @@ class Main: UIViewController {
         navigationController?.popViewController(animated: false)
     }
     
-    func updateUI(to size: CGSize) {
+    open func updateUI(to size: CGSize) {
         topStackView.axis = size.height < size.width ? .horizontal: .vertical
         topStackView.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
     }
     
     //MARK: - Setup Stack Views
-    func setupStackViews() {
+    open func setupStackViews() {
         topStackView.addArrangedSubview(imageView)
         topStackView.addArrangedSubview(bottomStackView)
         topStackView.distribution = .fillEqually
         topStackView.frame = view.bounds
         topStackView.axis = .vertical
-        topStackView.backgroundColor = .black
-        
+        //topStackView.backgroundColor = .white
+        topStackView.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
         //Setup Bottom Stack View
         bottomStackView.axis = .vertical
         bottomStackView.distribution = .fillEqually
         bottomStackView.spacing = 20
         
         //Setup Image
-        imageView.contentMode = .scaleAspectFill
-        imageView.image = UIImage(named: "1x")
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(named: "mainImage")
     }
     
     //MARK: - Create And Setup Interface Buttons
-    func createButtons(buttons: [UIButton], titles: [String]) {
+    //FIXME: Check is unout us correct usages
+    open func createButtons(buttons: inout [UIButton] ,titles: [String]) {
+
+        //Add buttons depend on titles count + 1st and last empty buttons
+        for _ in 0..<titles.count{
+            buttons.append(UIButton())
+        }
+        
         for i in 0..<buttons.count {
-            if titles[i] != "" {
+            buttons[i].setTitle(titles[i], for: [])
+            if buttons[i].titleLabel?.text != " " {
                 buttons[i].setTitleColor(.black, for: [])
-                buttons[i].backgroundColor = .yellow
+                buttons[i].setBackgroundImage(UIImage(named: "start"), for: [])
+                buttons[i].contentMode = .scaleAspectFill
                 buttons[i].layer.cornerRadius = 50
-                buttons[i].tintColor = .black
+                buttons[i].tintColor = .white
                 buttons[i].titleLabel?.font = UIFont.boldSystemFont(ofSize: Main.fontScaler)
-                buttons[i].setTitle(titles[i], for: [])
                 buttons[i].titleLabel?.textAlignment = .center
                 buttons[i].translatesAutoresizingMaskIntoConstraints = false
             } else {buttons[i].isEnabled = false}

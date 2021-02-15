@@ -10,7 +10,7 @@ import AVFoundation
 
 class GameSetupViewController: Main {
     
-    let buttonTitles = ["", "Легкий", "Cредний", "Сложный", ""]
+    var viewButtons: [UIButton] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,12 +22,9 @@ class GameSetupViewController: Main {
     }
     
     private func setupButtons() {
-        //FIXME: Make it more easier
-        let buttonArray = [UIButton(), UIButton(), UIButton(), UIButton(), UIButton()]
-        
-        createButtons(buttons: buttonArray, titles: buttonTitles)
-        for button in buttonArray {
-            if button.titleLabel?.text != "" {
+        createButtons(buttons: &viewButtons, titles: Words.complexityButtons)
+        for button in viewButtons {
+            if button.titleLabel?.text != " " {
                 button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
             }
         }
@@ -36,7 +33,7 @@ class GameSetupViewController: Main {
     @objc func buttonPressed(_ sender: UIButton) {
         switch sender.titleLabel?.text {
         case "Легкий": Main.incorrectMovesAllowed = 7
-        case "Cредний": Main.incorrectMovesAllowed = 6
+        case "Средний": Main.incorrectMovesAllowed = 6
         case "Сложный": Main.incorrectMovesAllowed = 5
         default: fatalError()
         }

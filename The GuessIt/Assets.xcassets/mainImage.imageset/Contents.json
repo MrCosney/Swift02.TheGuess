@@ -1,12 +1,12 @@
 {
   "images" : [
     {
-      "filename" : "gameImage2x2x.pdf",
+      "filename" : "mainImage2x.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "gameImage2x3x.pdf",
+      "filename" : "mainImage3x.pdf",
       "idiom" : "universal",
       "scale" : "2x"
     },
