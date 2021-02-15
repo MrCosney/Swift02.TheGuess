@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0120B40525D406AB00AC428B /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120B40425D406AB00AC428B /* OptionsViewController.swift */; };
-		0120B41725D480CF00AC428B /* buttonSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0120B41625D480CF00AC428B /* buttonSound.mp3 */; };
 		015F0D6B25DA79E6008CEDE2 /* Words.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015F0D6A25DA79E6008CEDE2 /* Words.swift */; };
+		015F0D7D25DAC6FC008CEDE2 /* myFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 015F0D7C25DAC6FC008CEDE2 /* myFont.ttf */; };
+		015F0D8225DAD037008CEDE2 /* backgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 015F0D8125DAD037008CEDE2 /* backgroundMusic.mp3 */; };
+		015F0D8625DAD265008CEDE2 /* buttonClick.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 015F0D8525DAD265008CEDE2 /* buttonClick.mp3 */; };
 		01781AE125D3A8660024EDC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01781AE025D3A8660024EDC6 /* AppDelegate.swift */; };
 		01781AE525D3A8660024EDC6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01781AE425D3A8660024EDC6 /* ViewController.swift */; };
 		01781AEA25D3A8670024EDC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01781AE925D3A8670024EDC6 /* Assets.xcassets */; };
@@ -22,8 +24,10 @@
 
 /* Begin PBXFileReference section */
 		0120B40425D406AB00AC428B /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
-		0120B41625D480CF00AC428B /* buttonSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buttonSound.mp3; sourceTree = "<group>"; };
 		015F0D6A25DA79E6008CEDE2 /* Words.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Words.swift; sourceTree = "<group>"; };
+		015F0D7C25DAC6FC008CEDE2 /* myFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = myFont.ttf; sourceTree = "<group>"; };
+		015F0D8125DAD037008CEDE2 /* backgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundMusic.mp3; sourceTree = "<group>"; };
+		015F0D8525DAD265008CEDE2 /* buttonClick.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buttonClick.mp3; sourceTree = "<group>"; };
 		01781ADD25D3A8660024EDC6 /* The Guess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Guess.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		01781AE025D3A8660024EDC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01781AE425D3A8660024EDC6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +51,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		015F0D6D25DAC082008CEDE2 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				015F0D7C25DAC6FC008CEDE2 /* myFont.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		015F0D8025DAD028008CEDE2 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				015F0D8525DAD265008CEDE2 /* buttonClick.mp3 */,
+				015F0D8125DAD037008CEDE2 /* backgroundMusic.mp3 */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
 		01781AD425D3A8660024EDC6 = {
 			isa = PBXGroup;
 			children = (
@@ -68,16 +89,17 @@
 			children = (
 				01781AE025D3A8660024EDC6 /* AppDelegate.swift */,
 				01781AE925D3A8670024EDC6 /* Assets.xcassets */,
-				0120B41625D480CF00AC428B /* buttonSound.mp3 */,
+				015F0D6D25DAC082008CEDE2 /* Fonts */,
+				0194B31325D663EA00B1F9ED /* Game.swift */,
 				01CEA9B925D5268D00CDDBFB /* GameSetupViewController.swift */,
 				01CEA9BF25D5417400CDDBFB /* GameThemeViewController.swift */,
 				01CEA9BC25D5404B00CDDBFB /* GameViewController.swift */,
-				015F0D6A25DA79E6008CEDE2 /* Words.swift */,
 				01781AEE25D3A8670024EDC6 /* Info.plist */,
 				01CEA9C325D5453400CDDBFB /* Main.swift */,
+				015F0D8025DAD028008CEDE2 /* Music */,
 				0120B40425D406AB00AC428B /* OptionsViewController.swift */,
 				01781AE425D3A8660024EDC6 /* ViewController.swift */,
-				0194B31325D663EA00B1F9ED /* Game.swift */,
+				015F0D6A25DA79E6008CEDE2 /* Words.swift */,
 			);
 			path = "The GuessIt";
 			sourceTree = "<group>";
@@ -139,8 +161,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0120B41725D480CF00AC428B /* buttonSound.mp3 in Resources */,
+				015F0D8625DAD265008CEDE2 /* buttonClick.mp3 in Resources */,
+				015F0D7D25DAC6FC008CEDE2 /* myFont.ttf in Resources */,
 				01781AEA25D3A8670024EDC6 /* Assets.xcassets in Resources */,
+				015F0D8225DAD037008CEDE2 /* backgroundMusic.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

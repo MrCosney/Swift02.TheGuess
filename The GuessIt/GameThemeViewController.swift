@@ -39,7 +39,7 @@ class GameThemeViewController: Main {
         case "Покемоны": Main.listOfWords = Words.pokemons
         default: fatalError()
         }
-        
+        //playButtonSound()
         navigationController?.pushViewController(GameSetupViewController(), animated: false)
     }
 }

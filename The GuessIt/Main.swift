@@ -23,9 +23,11 @@ class Main: UIViewController {
     //Font Propetires calculates in first View controller
     static var fontScaler: CGFloat = 12
     
-    // Propeties for Audio 
-    public let sound = URL(fileURLWithPath: Bundle.main.path(forResource: "buttonSound", ofType: "mp3") ?? "nil")
-    public var audioPlayer = AVAudioPlayer()
+    // Propeties for Audio
+    private var audioPlayer = AVAudioPlayer()
+    private var audioType = "mp3"
+    private var backgroundSound = "backgroundMusic"
+    private var buttonSound = "buttonClick"
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -47,11 +49,7 @@ class Main: UIViewController {
     }
     
     @objc open func returnButtonPressed() {
-        //FIXME: Fix the Audio problem
-//        do {
-//            audioPlayer = try AVAudioPlayer(contentsOf: sound)
-//            audioPlayer.play()
-//        } catch {}
+        //playButtonSound()
         navigationController?.popViewController(animated: false)
     }
     
@@ -67,7 +65,6 @@ class Main: UIViewController {
         topStackView.distribution = .fillEqually
         topStackView.frame = view.bounds
         topStackView.axis = .vertical
-        //topStackView.backgroundColor = .white
         topStackView.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
         //Setup Bottom Stack View
         bottomStackView.axis = .vertical
@@ -96,7 +93,7 @@ class Main: UIViewController {
                 buttons[i].contentMode = .scaleAspectFill
                 buttons[i].layer.cornerRadius = 50
                 buttons[i].tintColor = .white
-                buttons[i].titleLabel?.font = UIFont.boldSystemFont(ofSize: Main.fontScaler)
+                buttons[i].titleLabel?.font = UIFont(name: "Rockin\'-Record", size: Main.fontScaler)
                 buttons[i].titleLabel?.textAlignment = .center
                 buttons[i].translatesAutoresizingMaskIntoConstraints = false
             } else {buttons[i].isEnabled = false}
@@ -114,5 +111,28 @@ class Main: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
+    open func playSound() {
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath:
+                                            Bundle.main.path(forResource: backgroundSound, ofType: audioType)!))
+            audioPlayer.numberOfLoops = -1 // Make it Infinite
+            audioPlayer.prepareToPlay()
+        } catch {print("Background Sound is not Found")}
+        audioPlayer.play()
+    }
     
+    //FIXME: Fix button Sound
+    open func playButtonSound() {
+        do {
+            let audioPath = Bundle.main.path(forResource: "buttonClick", ofType: audioType)
+            try audioPlayer = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath!) as URL)
+
+        } catch {print("Button Sound is not Found")}
+        audioPlayer.play()
+    }
+    
+    //FIXME: Is it needed??
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
 }

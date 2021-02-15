@@ -16,7 +16,6 @@ class OptionsViewController: Main {
     let buttonVoliumeLabel =  UILabel()
     let buttomVoliumeSwitch = UISwitch()
     let stackView =           UIStackView()
-    var voliume: Int = 0
     
     //MARK: - Methods
     override func viewDidLoad() {
@@ -34,7 +33,6 @@ class OptionsViewController: Main {
         stackView.axis = .vertical
         stackView.distribution = .fillProportionally
         stackView.alignment = .center
-        stackView.backgroundColor = .black
         setupStackView()
         updateStackView(with: view.frame.size)
         view.addSubview(stackView)
@@ -70,10 +68,6 @@ class OptionsViewController: Main {
     
     @objc func pushButton() {
         //move it to superclass
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: sound)
-            audioPlayer.play()
-        } catch {}
         navigationController?.popViewController(animated: true)
     }
     

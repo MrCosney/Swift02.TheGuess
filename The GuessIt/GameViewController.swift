@@ -10,23 +10,23 @@ import UIKit
 class GameViewController: Main {
     //MARK: - Properties
     //FIXME: - Нужны ли private  на переменных?
-    let buttonsView =           UIStackView()
-    let correctWordLabel =      UILabel()
-    var currentRound:           Game!
-    var letterButtons =         [UIButton]()
-    let scoreLabel =            UILabel()
-    var listOfWords =           Main.listOfWords.shuffled()
+    private let buttonsView =           UIStackView()
+    private let correctWordLabel =      UILabel()
+    private var currentRound:           Game!
+    private var letterButtons =         [UIButton]()
+    private var listOfWords =           Main.listOfWords.shuffled()
+    private let scoreLabel =            UILabel()
     
     //Game Status Properties
-    var totalWins: Int = 0 {
+    private var totalWins: Int = 0 {
         didSet {newRound()}
     }
-    var totalLosses: Int = 0 {
+    private var totalLosses: Int = 0 {
         didSet {newRound()}
     }
     
     //MARK: - Methods
-    @objc func buttonPressed(_ sender: UIButton) {
+    @objc private func buttonPressed(_ sender: UIButton) {
         let letter = sender.title(for: .normal)!
    
         sender.isEnabled = false
@@ -63,27 +63,23 @@ class GameViewController: Main {
         }
     }
     
+    ///Enable / Disable Buttons for guess the Words
     private func enableButtons(_ enable: Bool = true) {
         for button in letterButtons {
                 button.isEnabled = enable
         }
     }
     
-    /// Check if List of Word is Empty and Finish the game if is.
-    private func isGameFinished() {
+    /// Setup the NewRound of the Game.
+    private func newRound() {
+        //isGameFinished()
         guard !listOfWords.isEmpty else {
             enableButtons(false)
             updateGameInterface()
             return
         }
-    }
-    
-    /// Setup the NewRound of the Game.
-    private func newRound() {
-        isGameFinished()
         
         let newWord = listOfWords.removeFirst()
-        print(newWord)
         currentRound = Game(word: newWord, movesRemaining: Main.incorrectMovesAllowed)
         updateGameInterface()
         enableButtons()
@@ -106,7 +102,6 @@ class GameViewController: Main {
         bottomStackView.addArrangedSubview(buttonsView)
         bottomStackView.addArrangedSubview(scoreLabel)
         bottomStackView.distribution = .fillEqually
-        bottomStackView.spacing = 0
         
         buttonsView.distribution = .fillProportionally
         buttonsView.axis = .vertical
@@ -130,7 +125,7 @@ class GameViewController: Main {
         imageView.image = UIImage(named: image)
         updateCorrectWordLabel()
         scoreLabel.font = UIFont.boldSystemFont(ofSize: Main.fontScaler)
-        scoreLabel.text = "Выигрыши: \(totalWins), проигрыши: \(totalLosses)"
+        scoreLabel.text = "Побед: \(totalWins).   Поражений: \(totalLosses)"
     }
     
     /// Update the current User's Wins Losses status

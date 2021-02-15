@@ -37,6 +37,7 @@ class GameSetupViewController: Main {
         case "Сложный": Main.incorrectMovesAllowed = 5
         default: fatalError()
         }
+        //playButtonSound()
         navigationController?.pushViewController(GameViewController(), animated: false)
     }
 }
