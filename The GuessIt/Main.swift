@@ -45,7 +45,7 @@ class Main: UIViewController {
     }
     
     @objc open func returnButtonPressed() {
-        //playButtonSound()
+        playButtonSound()
         navigationController?.popViewController(animated: false)
     }
     
@@ -70,6 +70,7 @@ class Main: UIViewController {
         //Setup Image
         imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(named: "mainImage")
+        
     }
     
     //MARK: - Create And Setup Interface Buttons
@@ -96,17 +97,23 @@ class Main: UIViewController {
             bottomStackView.addArrangedSubview(buttons[i])
         }
     }
-    //MARK: - Navigation and Transition Configuartion
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        updateUI(to: size)
+    //MARK: - Buttons Sound Effect
+    open func playButtonSound() {
+        // Check if Option Effects Switch Is on
+        guard Main.effecttsIsOn else {return}
+        SoundEffects.sharedInstance.play()
     }
     
+    //MARK: - Navigation and Transition Configuartion
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
- 
+   
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        updateUI(to: size)
+    }
     
     //FIXME: Is it needed??
     override func didReceiveMemoryWarning() {

@@ -8,6 +8,7 @@
 import UIKit
 import AVFoundation
 
+/// Controller for Setup the Music Options (Music/Effectins) in the App
 class OptionsViewController: Main {
     
     //MARK: - Properties
@@ -69,14 +70,11 @@ class OptionsViewController: Main {
         
         //Turn On/Off the Background Music
         if sender.accessibilityIdentifier == "Музыка" {
-            if sender.isOn == false {Singleton.sharedInstance.stop()}
-            else {Singleton.sharedInstance.play()}
+            if sender.isOn == false {Music.sharedInstance.stop()}
+            else {Music.sharedInstance.play()}
             Main.musicIsOn.toggle()
-        }
-        
+        } else {
         //Turn On/Off the sound effects
-        if sender.accessibilityIdentifier == "Эффекты" {
-            //FIXME: Add code for control the sound
             Main.effecttsIsOn.toggle()
         }
     }

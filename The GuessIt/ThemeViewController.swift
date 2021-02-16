@@ -8,7 +8,9 @@
 import UIKit
 import AVFoundation
 
-class GameThemeViewController: Main {
+
+/// Controller for Setup the Theme Of the Words in the Game
+class ThemeViewController: Main {
 
     var viewButtons: [UIButton] = []
     
@@ -39,7 +41,8 @@ class GameThemeViewController: Main {
         case "Покемоны": Main.listOfWords = Words.pokemons
         default: fatalError()
         }
-        //playButtonSound()
-        navigationController?.pushViewController(GameSetupViewController(), animated: false)
+        
+        playButtonSound()
+        navigationController?.pushViewController(SetupViewController(), animated: false)
     }
 }

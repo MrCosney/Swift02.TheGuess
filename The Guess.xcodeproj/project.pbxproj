@@ -14,12 +14,12 @@
 		015F0D8225DAD037008CEDE2 /* backgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 015F0D8125DAD037008CEDE2 /* backgroundMusic.mp3 */; };
 		015F0D8625DAD265008CEDE2 /* buttonClick.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 015F0D8525DAD265008CEDE2 /* buttonClick.mp3 */; };
 		01781AE125D3A8660024EDC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01781AE025D3A8660024EDC6 /* AppDelegate.swift */; };
-		01781AE525D3A8660024EDC6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01781AE425D3A8660024EDC6 /* ViewController.swift */; };
+		01781AE525D3A8660024EDC6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01781AE425D3A8660024EDC6 /* MenuViewController.swift */; };
 		01781AEA25D3A8670024EDC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01781AE925D3A8670024EDC6 /* Assets.xcassets */; };
 		0194B31425D663EA00B1F9ED /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0194B31325D663EA00B1F9ED /* Game.swift */; };
-		01CEA9BA25D5268D00CDDBFB /* GameSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CEA9B925D5268D00CDDBFB /* GameSetupViewController.swift */; };
+		01CEA9BA25D5268D00CDDBFB /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CEA9B925D5268D00CDDBFB /* SetupViewController.swift */; };
 		01CEA9BD25D5404B00CDDBFB /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CEA9BC25D5404B00CDDBFB /* GameViewController.swift */; };
-		01CEA9C025D5417400CDDBFB /* GameThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CEA9BF25D5417400CDDBFB /* GameThemeViewController.swift */; };
+		01CEA9C025D5417400CDDBFB /* ThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CEA9BF25D5417400CDDBFB /* ThemeViewController.swift */; };
 		01CEA9C425D5453400CDDBFB /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CEA9C325D5453400CDDBFB /* Main.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,13 +32,13 @@
 		015F0D8525DAD265008CEDE2 /* buttonClick.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buttonClick.mp3; sourceTree = "<group>"; };
 		01781ADD25D3A8660024EDC6 /* The Guess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Guess.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		01781AE025D3A8660024EDC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		01781AE425D3A8660024EDC6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		01781AE425D3A8660024EDC6 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		01781AE925D3A8670024EDC6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01781AEE25D3A8670024EDC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0194B31325D663EA00B1F9ED /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		01CEA9B925D5268D00CDDBFB /* GameSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSetupViewController.swift; sourceTree = "<group>"; };
+		01CEA9B925D5268D00CDDBFB /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		01CEA9BC25D5404B00CDDBFB /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		01CEA9BF25D5417400CDDBFB /* GameThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameThemeViewController.swift; sourceTree = "<group>"; };
+		01CEA9BF25D5417400CDDBFB /* ThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewController.swift; sourceTree = "<group>"; };
 		01CEA9C325D5453400CDDBFB /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -53,6 +53,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01030F9E25DC1F9A00238CCF /* Structures */ = {
+			isa = PBXGroup;
+			children = (
+				0194B31325D663EA00B1F9ED /* Game.swift */,
+				01030F9B25DBEFE400238CCF /* AudioPlayer.swift */,
+				015F0D6A25DA79E6008CEDE2 /* Words.swift */,
+			);
+			path = Structures;
+			sourceTree = "<group>";
+		};
 		015F0D6D25DAC082008CEDE2 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,17 +102,15 @@
 				01781AE025D3A8660024EDC6 /* AppDelegate.swift */,
 				01781AE925D3A8670024EDC6 /* Assets.xcassets */,
 				015F0D6D25DAC082008CEDE2 /* Fonts */,
-				0194B31325D663EA00B1F9ED /* Game.swift */,
-				01CEA9B925D5268D00CDDBFB /* GameSetupViewController.swift */,
-				01CEA9BF25D5417400CDDBFB /* GameThemeViewController.swift */,
 				01CEA9BC25D5404B00CDDBFB /* GameViewController.swift */,
 				01781AEE25D3A8670024EDC6 /* Info.plist */,
 				01CEA9C325D5453400CDDBFB /* Main.swift */,
-				01030F9B25DBEFE400238CCF /* AudioPlayer.swift */,
 				015F0D8025DAD028008CEDE2 /* Music */,
 				0120B40425D406AB00AC428B /* OptionsViewController.swift */,
-				01781AE425D3A8660024EDC6 /* ViewController.swift */,
-				015F0D6A25DA79E6008CEDE2 /* Words.swift */,
+				01CEA9B925D5268D00CDDBFB /* SetupViewController.swift */,
+				01030F9E25DC1F9A00238CCF /* Structures */,
+				01CEA9BF25D5417400CDDBFB /* ThemeViewController.swift */,
+				01781AE425D3A8660024EDC6 /* MenuViewController.swift */,
 			);
 			path = "The GuessIt";
 			sourceTree = "<group>";
@@ -179,10 +187,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				015F0D6B25DA79E6008CEDE2 /* Words.swift in Sources */,
-				01CEA9BA25D5268D00CDDBFB /* GameSetupViewController.swift in Sources */,
+				01CEA9BA25D5268D00CDDBFB /* SetupViewController.swift in Sources */,
 				0120B40525D406AB00AC428B /* OptionsViewController.swift in Sources */,
-				01781AE525D3A8660024EDC6 /* ViewController.swift in Sources */,
-				01CEA9C025D5417400CDDBFB /* GameThemeViewController.swift in Sources */,
+				01781AE525D3A8660024EDC6 /* MenuViewController.swift in Sources */,
+				01CEA9C025D5417400CDDBFB /* ThemeViewController.swift in Sources */,
 				01CEA9BD25D5404B00CDDBFB /* GameViewController.swift in Sources */,
 				01CEA9C425D5453400CDDBFB /* Main.swift in Sources */,
 				01030F9C25DBEFE400238CCF /* AudioPlayer.swift in Sources */,

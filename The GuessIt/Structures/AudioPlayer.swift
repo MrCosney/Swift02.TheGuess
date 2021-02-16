@@ -35,3 +35,25 @@ class Music {
         player?.stop()
     }
 }
+
+//FIXME: Refactor is needed! Group Up in 1 class with Background Music!?
+class SoundEffects {
+    static let sharedInstance = SoundEffects()
+    private var player: AVAudioPlayer?
+
+    //Play the Sound effect
+    func play() {
+        guard let url = Bundle.main.url(forResource: "buttonClick", withExtension: "mp3") else { return }
+
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+            try AVAudioSession.sharedInstance().setActive(true)
+
+            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+            guard let player = player else { return }
+
+            player.play()
+
+        } catch {print("Background Music is not found")}
+    }
+}

@@ -30,6 +30,7 @@ class GameViewController: Main {
         let letter = sender.title(for: .normal)!
    
         sender.isEnabled = false
+        playButtonSound()
         currentRound.guess(letter: Character(letter))
         updateState()
     }
@@ -40,6 +41,8 @@ class GameViewController: Main {
             let title = buttonTitle == "_" ? "": String(buttonTitle)
             let button = UIButton()
             if title != ""{
+                button.setBackgroundImage(UIImage(named: "letterButtonActive"), for: .normal)
+                button.setBackgroundImage(UIImage(named: "letterButtonDisabled"), for: .disabled)
                 button.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
             }
             button.setTitle(title, for: .normal)

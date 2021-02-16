@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: Main {
+class MenuViewController: Main {
 
     //MARK: - Properties
     var viewButtons: [UIButton] = []
@@ -38,11 +38,11 @@ class ViewController: Main {
     }
     
     @objc func optionButtonPressed() {
-       // playButtonSound()
+        playButtonSound()
         navigationController?.pushViewController(OptionsViewController(), animated: false)
     }
     @objc func startButtonPressed() {
-        //playButtonSound()
-        navigationController?.pushViewController(GameThemeViewController(), animated: false)
+        playButtonSound()
+        navigationController?.pushViewController(ThemeViewController(), animated: false)
     }
 }

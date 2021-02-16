@@ -8,7 +8,8 @@
 import UIKit
 import AVFoundation
 
-class GameSetupViewController: Main {
+/// Controller for Setup the Complexity of the Game
+class SetupViewController: Main {
     
     var viewButtons: [UIButton] = []
     
@@ -37,7 +38,8 @@ class GameSetupViewController: Main {
         case "Сложный": Main.incorrectMovesAllowed = 5
         default: fatalError()
         }
-        //playButtonSound()
+        
+        playButtonSound()
         navigationController?.pushViewController(GameViewController(), animated: false)
     }
 }
