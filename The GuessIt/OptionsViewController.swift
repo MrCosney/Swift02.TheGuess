@@ -50,6 +50,7 @@ class OptionsViewController: Main {
         //Setup Each Option Label
         for i in 0..<labels.count {
             labels[i].text = labelsText[i]
+            labels[i].textColor = .black
             labels[i].font = UIFont(name: "Rockin\'-Record", size: Main.fontScaler + 5)
         }
         //Setup Each Switcher
