@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import AVFoundation
 
 class Main: UIViewController {
     //MARK: - Properties
@@ -22,12 +21,9 @@ class Main: UIViewController {
     static var listOfWords: [String] = []
     //Font Propetires calculates in first View controller
     static var fontScaler: CGFloat = 12
-    
-    // Propeties for Audio
-    private var audioPlayer = AVAudioPlayer()
-    private var audioType = "mp3"
-    private var backgroundSound = "backgroundMusic"
-    private var buttonSound = "buttonClick"
+    //Option Switcher state
+    static var musicIsOn = true
+    static var effecttsIsOn = true
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -110,26 +106,7 @@ class Main: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-    
-    open func playSound() {
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath:
-                                            Bundle.main.path(forResource: backgroundSound, ofType: audioType)!))
-            audioPlayer.numberOfLoops = -1 // Make it Infinite
-            audioPlayer.prepareToPlay()
-        } catch {print("Background Sound is not Found")}
-        audioPlayer.play()
-    }
-    
-    //FIXME: Fix button Sound
-    open func playButtonSound() {
-        do {
-            let audioPath = Bundle.main.path(forResource: "buttonClick", ofType: audioType)
-            try audioPlayer = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath!) as URL)
-
-        } catch {print("Button Sound is not Found")}
-        audioPlayer.play()
-    }
+ 
     
     //FIXME: Is it needed??
     override func didReceiveMemoryWarning() {

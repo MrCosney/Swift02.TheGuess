@@ -12,65 +12,82 @@ class OptionsViewController: Main {
     
     //MARK: - Properties
     let voliumeLabel =        UILabel()
-    let voliumeSwitch =       UISwitch()
+    let musicSwitch =       UISwitch()
     let buttonVoliumeLabel =  UILabel()
-    let buttomVoliumeSwitch = UISwitch()
+    let soundEffectSwitch = UISwitch()
     let stackView =           UIStackView()
     
     //MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
+        view.addSubview(stackView)
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
         createReturnButton()
         createStackView()
     }
     
     private func createStackView() {
+        setupOptinoStackView()
         stackView.addArrangedSubview(voliumeLabel)
-        stackView.addArrangedSubview(voliumeSwitch)
+        stackView.addArrangedSubview(musicSwitch)
         stackView.addArrangedSubview(buttonVoliumeLabel)
-        stackView.addArrangedSubview(buttomVoliumeSwitch)
+        stackView.addArrangedSubview(soundEffectSwitch)
         stackView.axis = .vertical
-        stackView.distribution = .fillProportionally
+        stackView.distribution = .fillEqually
         stackView.alignment = .center
-        setupStackView()
+        
         updateStackView(with: view.frame.size)
-        view.addSubview(stackView)
     }
     
-    private func setupStackView() {
-        //MARK: TODO добавить размер switch от размера экрана
+    private func setupOptinoStackView() {
+        //TODO: добавить размер switch от размера экрана
 
         let labels = [voliumeLabel, buttonVoliumeLabel]
         let labelsText = ["Музыка", "Эффекты"]
-        let switchers = [buttomVoliumeSwitch, voliumeSwitch]
+        let switchers = [musicSwitch, soundEffectSwitch]
         
         //Setup Each Option Label
         for i in 0..<labels.count {
-            labels[i].font = UIFont.boldSystemFont(ofSize: Main.fontScaler / 15)
             labels[i].text = labelsText[i]
-            labels[i].textColor = .white
+            labels[i].font = UIFont(name: "Rockin\'-Record", size: Main.fontScaler + 5)
         }
-        print(view.bounds.size.height / 51)
         //Setup Each Switcher
-        for switcher in switchers{
-            switcher.tintColor = .red
-            switcher.onTintColor = .red
-            //switcher.transform = CGAffineTransform(scaleX: (view.bounds.size.width / 51) / 15, y: (view.bounds.size.height / 31) / 15)
+        for index in 0..<switchers.count {
+            switchers[index].onTintColor = .black
+            switchers[index].thumbTintColor = .yellow
+            //switcher.backgroundColor = .red
+            //switcher.layer.cornerRadius = 16
+           // switcher.layer.masksToBounds = false
+            switchers[index].accessibilityIdentifier = labelsText[index]
+            switchers[index].addTarget(self, action: #selector(didChangeSwitcher), for: .valueChanged)
+        }
+        //Setup current Switcher Status
+        musicSwitch.isOn = Main.musicIsOn
+        soundEffectSwitch.isOn = Main.effecttsIsOn
+    }
+    @objc private func didChangeSwitcher(_ sender: UISwitch) {
+        
+        //Turn On/Off the Background Music
+        if sender.accessibilityIdentifier == "Музыка" {
+            if sender.isOn == false {Singleton.sharedInstance.stop()}
+            else {Singleton.sharedInstance.play()}
+            Main.musicIsOn.toggle()
+        }
+        
+        //Turn On/Off the sound effects
+        if sender.accessibilityIdentifier == "Эффекты" {
+            //FIXME: Add code for control the sound
+            Main.effecttsIsOn.toggle()
         }
     }
+    
     private func updateStackView(with size: CGSize) {
         stackView.frame = CGRect(x: size.width / 4 ,
                                  y: size.height / 4,
                                  width: size.width / 2 ,
                                  height: size.height / 2 )
     }
-    
-    @objc func pushButton() {
-        //move it to superclass
-        navigationController?.popViewController(animated: true)
-    }
-    
+
     override func updateUI(to size: CGSize) {
         updateReturnButton()
         updateStackView(with: size)

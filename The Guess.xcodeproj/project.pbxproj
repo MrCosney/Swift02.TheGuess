@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01030F9C25DBEFE400238CCF /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01030F9B25DBEFE400238CCF /* AudioPlayer.swift */; };
 		0120B40525D406AB00AC428B /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120B40425D406AB00AC428B /* OptionsViewController.swift */; };
 		015F0D6B25DA79E6008CEDE2 /* Words.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015F0D6A25DA79E6008CEDE2 /* Words.swift */; };
 		015F0D7D25DAC6FC008CEDE2 /* myFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 015F0D7C25DAC6FC008CEDE2 /* myFont.ttf */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01030F9B25DBEFE400238CCF /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		0120B40425D406AB00AC428B /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		015F0D6A25DA79E6008CEDE2 /* Words.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Words.swift; sourceTree = "<group>"; };
 		015F0D7C25DAC6FC008CEDE2 /* myFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = myFont.ttf; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				01CEA9BC25D5404B00CDDBFB /* GameViewController.swift */,
 				01781AEE25D3A8670024EDC6 /* Info.plist */,
 				01CEA9C325D5453400CDDBFB /* Main.swift */,
+				01030F9B25DBEFE400238CCF /* AudioPlayer.swift */,
 				015F0D8025DAD028008CEDE2 /* Music */,
 				0120B40425D406AB00AC428B /* OptionsViewController.swift */,
 				01781AE425D3A8660024EDC6 /* ViewController.swift */,
@@ -182,6 +185,7 @@
 				01CEA9C025D5417400CDDBFB /* GameThemeViewController.swift in Sources */,
 				01CEA9BD25D5404B00CDDBFB /* GameViewController.swift in Sources */,
 				01CEA9C425D5453400CDDBFB /* Main.swift in Sources */,
+				01030F9C25DBEFE400238CCF /* AudioPlayer.swift in Sources */,
 				01781AE125D3A8660024EDC6 /* AppDelegate.swift in Sources */,
 				0194B31425D663EA00B1F9ED /* Game.swift in Sources */,
 			);

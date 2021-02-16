@@ -29,7 +29,8 @@ class ViewController: Main {
         super.viewDidLoad()
         //Calculate Font Size For Button's lables
         Main.fontScaler = min(view.bounds.size.width, view.bounds.size.height) / 20
-        playSound()
+
+        Music.sharedInstance.play()
         setupButtons()
         setupStackViews()
         view.addSubview(topStackView)
@@ -38,7 +39,7 @@ class ViewController: Main {
     
     @objc func optionButtonPressed() {
        // playButtonSound()
-        navigationController?.pushViewController(OptionsViewController(), animated: true)
+        navigationController?.pushViewController(OptionsViewController(), animated: false)
     }
     @objc func startButtonPressed() {
         //playButtonSound()
