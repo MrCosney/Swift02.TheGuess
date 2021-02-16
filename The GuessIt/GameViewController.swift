@@ -47,7 +47,7 @@ class GameViewController: Main {
             }
             button.setTitle(title, for: .normal)
             button.titleLabel?.textAlignment = .center
-            button.titleLabel?.font = UIFont.boldSystemFont(ofSize: Main.fontScaler)
+            button.titleLabel?.font = UIFont.boldSystemFont(ofSize: Main.fontScaler - 7)
             button.setTitleColor(.black, for: .normal)
             button.setTitleColor(.gray, for: .disabled)
             
