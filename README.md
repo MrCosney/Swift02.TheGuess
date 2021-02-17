@@ -18,7 +18,7 @@ The interface is very simple and intuitive.
 ## Game Process
 Depending on the complexity of the game, you will have a limited number of attempts to guess the word (7/6/5).
 - **For each misguided letter, 1 doodle will disappear from the screen**.
-- **Be careful, the last Doodle is very afraid to be alone! **
+- **Be careful, the last Doodle is very afraid to be alone!**
 
 <img src="https://github.com/MrCosney/Swift02.TheGuess/blob/main/Screenshots/ScreenShot6.png" width="175"><img src="https://github.com/MrCosney/Swift02.TheGuess/blob/main/Screenshots/ScreenShot7.png" width="175"><img src="https://github.com/MrCosney/Swift02.TheGuess/blob/main/Screenshots/ScreenShot8.png" width="175">
 
