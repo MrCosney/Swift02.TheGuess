@@ -1,4 +1,4 @@
-<img src="https://i.ibb.co/2dSytSc/readme-Logo.png" width=700>
+<img src="https://i.ibb.co/Kr1rL3H/readme-Logo.png" width="700">
 
 # The Guess
 This is my adaptation of Hangman Game. This is a paper and pen word game where you have to guess the right term. It’s a perfect game to get to know new or uncommon words.
