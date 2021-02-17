@@ -36,7 +36,6 @@ class Music {
     }
 }
 
-//FIXME: Refactor is needed! Group Up in 1 class with Background Music!?
 class SoundEffects {
     static let sharedInstance = SoundEffects()
     private var player: AVAudioPlayer?
