@@ -1,6 +1,6 @@
 <img src="https://i.ibb.co/2dSytSc/readme-Logo.png" width=700>
-# The Guess
 
+# The Guess
 This is my adaptation of Hangman Game. This is a paper and pen word game where you have to guess the right term. It’s a perfect game to get to know new or uncommon words.
 This version of the game features 3 word themes:
 - **Capitals**
