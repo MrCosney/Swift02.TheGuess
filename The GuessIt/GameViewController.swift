@@ -74,7 +74,6 @@ class GameViewController: BaseViewController {
     
     /// Setup the NewRound of the Game.
     private func newRound() {
-        //isGameFinished()
         guard !listOfWords.isEmpty else {
             enableButtons(false)
             updateGameInterface()

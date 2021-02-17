@@ -39,7 +39,6 @@ class BaseViewController: UIViewController {
     }
     
     func updateReturnButton() {
-        //TODO: Find the correct position for button
         let sizeScaler = min(view.bounds.size.width, view.bounds.size.height)
         returnButton.frame = CGRect(x: 25, y: 25, width: sizeScaler / 5, height: sizeScaler / 5)
     }

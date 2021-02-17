@@ -5,6 +5,7 @@
 //  Created by Nick on 12.02.2021.
 //
 
+/// Control the Guess Process(check the correct letter and compare it to true one)
 struct Game {
     var currentWord: String
     var movesRemaining: Int
