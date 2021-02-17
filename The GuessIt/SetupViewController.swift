@@ -6,10 +6,9 @@
 //
 
 import UIKit
-import AVFoundation
 
 /// Controller for Setup the Complexity of the Game
-class SetupViewController: Main {
+class SetupViewController: BaseViewController {
     
     var viewButtons: [UIButton] = []
     
@@ -31,11 +30,12 @@ class SetupViewController: Main {
         }
     }
     
-    @objc func buttonPressed(_ sender: UIButton) {
+    ///Setup the Game Complexity Based on the User Choice
+    @objc private func buttonPressed(_ sender: UIButton) {
         switch sender.titleLabel?.text {
-        case "Легкий": Main.incorrectMovesAllowed = 7
-        case "Средний": Main.incorrectMovesAllowed = 6
-        case "Сложный": Main.incorrectMovesAllowed = 5
+        case "Легкий": BaseViewController.incorrectMovesAllowed = 7
+        case "Средний": BaseViewController.incorrectMovesAllowed = 6
+        case "Сложный": BaseViewController.incorrectMovesAllowed = 5
         default: fatalError()
         }
         

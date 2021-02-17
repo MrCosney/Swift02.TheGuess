@@ -7,23 +7,23 @@
 
 import UIKit
 
-class Main: UIViewController {
+class BaseViewController: UIViewController {
     //MARK: - Properties
-    public let imageView =          UIImageView()
-    public let returnButton =       UIButton()
+    let customFont = "Rockin\'-Record"
+    let imageView = UIImageView()
+    let returnButton = UIButton()
     // Create StackView
-    public let bottomStackView =    UIStackView()
-    public let topStackView =       UIStackView()
+    let bottomStackView = UIStackView()
+    let topStackView = UIStackView()
     // Game Properties
-    //FIXME: Переделать в Enum?
-    static var buttonsAlphobet = "_ЙЦУКЕНГШЩЗХЪЁ___ФЫВАПРОЛДЖЭ_____ЯЧСМИТЬБЮ___"
+    static var buttonsAlphabet = "_ЙЦУКЕНГШЩЗХЪЁ___ФЫВАПРОЛДЖЭ_____ЯЧСМИТЬБЮ___"
     static var incorrectMovesAllowed = 7
     static var listOfWords: [String] = []
-    //Font Propetires calculates in first View controller
+    //Font Properties calculates in first View controller
     static var fontScaler: CGFloat = 12
     //Option Switcher state
     static var musicIsOn = true
-    static var effecttsIsOn = true
+    static var effectsIsOn = true
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -31,15 +31,15 @@ class Main: UIViewController {
     
     //MARK: - Methods
     //MARK: - Create and Setup Return Button
-    open func createReturnButton() {
+    func createReturnButton() {
         returnButton.setBackgroundImage(UIImage(named: "returnButton"), for: [])
         view.addSubview(returnButton)
         updateReturnButton()
         returnButton.addTarget(self, action: #selector(returnButtonPressed), for: .touchUpInside)
     }
     
-    open func updateReturnButton() {
-        //TODO: Find the corret position for button
+    func updateReturnButton() {
+        //TODO: Find the correct position for button
         let sizeScaler = min(view.bounds.size.width, view.bounds.size.height)
         returnButton.frame = CGRect(x: 25, y: 25, width: sizeScaler / 5, height: sizeScaler / 5)
     }
@@ -49,13 +49,13 @@ class Main: UIViewController {
         navigationController?.popViewController(animated: false)
     }
     
-    open func updateUI(to size: CGSize) {
+    func updateUI(to size: CGSize) {
         topStackView.axis = size.height < size.width ? .horizontal: .vertical
         topStackView.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
     }
     
     //MARK: - Setup Stack Views
-    open func setupStackViews() {
+    func setupStackViews() {
         topStackView.addArrangedSubview(imageView)
         topStackView.addArrangedSubview(bottomStackView)
         topStackView.distribution = .fillEqually
@@ -74,9 +74,8 @@ class Main: UIViewController {
     }
     
     //MARK: - Create And Setup Interface Buttons
-    //FIXME: Check is unout us correct usages
-    open func createButtons(buttons: inout [UIButton] ,titles: [String]) {
-
+    func createButtons(buttons: inout [UIButton] ,titles: [String]) {
+        
         //Add buttons depend on titles count + 1st and last empty buttons
         for _ in 0..<titles.count{
             buttons.append(UIButton())
@@ -90,32 +89,31 @@ class Main: UIViewController {
                 buttons[i].contentMode = .scaleAspectFill
                 buttons[i].layer.cornerRadius = 50
                 buttons[i].tintColor = .white
-                buttons[i].titleLabel?.font = UIFont(name: "Rockin\'-Record", size: Main.fontScaler)
+                buttons[i].titleLabel?.font = UIFont(name: customFont, size: BaseViewController.fontScaler)
                 buttons[i].titleLabel?.textAlignment = .center
                 buttons[i].translatesAutoresizingMaskIntoConstraints = false
-            } else {buttons[i].isEnabled = false}
+            } else { buttons[i].isEnabled = false }
             bottomStackView.addArrangedSubview(buttons[i])
         }
     }
     //MARK: - Buttons Sound Effect
-    open func playButtonSound() {
+    func playButtonSound() {
         // Check if Option Effects Switch Is on
-        guard Main.effecttsIsOn else {return}
+        guard BaseViewController.effectsIsOn else { return }
         SoundEffects.sharedInstance.play()
     }
     
-    //MARK: - Navigation and Transition Configuartion
+    //MARK: - Navigation and Transition Configuration
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-   
+    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         updateUI(to: size)
     }
-    
-    //FIXME: Is it needed??
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

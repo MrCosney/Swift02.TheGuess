@@ -7,28 +7,27 @@
 
 import UIKit
 
-class GameViewController: Main {
+class GameViewController: BaseViewController {
     //MARK: - Properties
-    //FIXME: - Нужны ли private  на переменных?
-    private let buttonsView =           UIStackView()
-    private let correctWordLabel =      UILabel()
-    private var currentRound:           Game!
-    private var letterButtons =         [UIButton]()
-    private var listOfWords =           Main.listOfWords.shuffled()
-    private let scoreLabel =            UILabel()
+    private let buttonsView = UIStackView()
+    private let correctWordLabel = UILabel()
+    private var currentRound: Game!
+    private var letterButtons = [UIButton]()
+    private var listOfWords = BaseViewController.listOfWords.shuffled()
+    private let scoreLabel = UILabel()
     
     //Game Status Properties
     private var totalWins: Int = 0 {
-        didSet {newRound()}
+        didSet { newRound() }
     }
     private var totalLosses: Int = 0 {
-        didSet {newRound()}
+        didSet { newRound() }
     }
     
     //MARK: - Methods
     @objc private func buttonPressed(_ sender: UIButton) {
         let letter = sender.title(for: .normal)!
-   
+        
         sender.isEnabled = false
         playButtonSound()
         currentRound.guess(letter: Character(letter))
@@ -37,7 +36,7 @@ class GameViewController: Main {
     
     private func createLetterButtons() {
         
-        for buttonTitle in Main.buttonsAlphobet {
+        for buttonTitle in BaseViewController.buttonsAlphabet {
             let title = buttonTitle == "_" ? "": String(buttonTitle)
             let button = UIButton()
             if title != ""{
@@ -47,7 +46,7 @@ class GameViewController: Main {
             }
             button.setTitle(title, for: .normal)
             button.titleLabel?.textAlignment = .center
-            button.titleLabel?.font = UIFont.boldSystemFont(ofSize: Main.fontScaler - 7)
+            button.titleLabel?.font = UIFont.boldSystemFont(ofSize: BaseViewController.fontScaler - 7)
             button.setTitleColor(.black, for: .normal)
             button.setTitleColor(.gray, for: .disabled)
             
@@ -66,10 +65,10 @@ class GameViewController: Main {
         }
     }
     
-    ///Enable / Disable Buttons for guess the Words
+    /// Enable/Disable Buttons for guess the Words
     private func enableButtons(_ enable: Bool = true) {
         for button in letterButtons {
-                button.isEnabled = enable
+            button.isEnabled = enable
         }
     }
     
@@ -83,7 +82,7 @@ class GameViewController: Main {
         }
         
         let newWord = listOfWords.removeFirst()
-        currentRound = Game(word: newWord, movesRemaining: Main.incorrectMovesAllowed)
+        currentRound = Game(word: newWord, movesRemaining: BaseViewController.incorrectMovesAllowed)
         updateGameInterface()
         enableButtons()
     }
@@ -93,12 +92,12 @@ class GameViewController: Main {
         //Setup scorelabel
         scoreLabel.textColor = .black
         scoreLabel.textAlignment = .center
-        scoreLabel.font = UIFont.boldSystemFont(ofSize: Main.fontScaler - 3)
+        scoreLabel.font = UIFont.boldSystemFont(ofSize: BaseViewController.fontScaler - 3)
         
         //Setup correct word Label
         correctWordLabel.textColor = .black
         correctWordLabel.textAlignment = .center
-        correctWordLabel.font = UIFont.boldSystemFont(ofSize: Main.fontScaler + 3)
+        correctWordLabel.font = UIFont.boldSystemFont(ofSize: BaseViewController.fontScaler + 3)
         
         //Setup the Bottom View
         bottomStackView.addArrangedSubview(correctWordLabel)
@@ -127,7 +126,7 @@ class GameViewController: Main {
         let image = "Doodle\(imageNumber)"
         imageView.image = UIImage(named: image)
         updateCorrectWordLabel()
-        scoreLabel.font = UIFont.boldSystemFont(ofSize: Main.fontScaler)
+        scoreLabel.font = UIFont.boldSystemFont(ofSize: BaseViewController.fontScaler)
         scoreLabel.text = "Побед: \(totalWins).   Поражений: \(totalLosses)"
     }
     

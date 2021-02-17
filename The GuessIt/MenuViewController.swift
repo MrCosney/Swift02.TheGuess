@@ -7,8 +7,8 @@
 
 import UIKit
 
-class MenuViewController: Main {
-
+class MenuViewController: BaseViewController {
+    
     //MARK: - Properties
     var viewButtons: [UIButton] = []
     
@@ -17,19 +17,15 @@ class MenuViewController: Main {
     private func setupButtons() {
         createButtons(buttons: &viewButtons, titles: Words.menuButtons)
         for button in viewButtons {
-            if button.titleLabel?.text == "Начать игру" {
-                button.addTarget(self, action: #selector(startButtonPressed), for: .touchUpInside)
-            } else if button.titleLabel?.text == "Настройки" {
-                button.addTarget(self, action: #selector(optionButtonPressed), for: .touchUpInside)
-            }
+            button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Calculate Font Size For Button's lables
-        Main.fontScaler = min(view.bounds.size.width, view.bounds.size.height) / 20
-
+        //Calculate Font Size For Button's labels
+        BaseViewController.fontScaler = min(view.bounds.size.width, view.bounds.size.height) / 20
+        
         Music.sharedInstance.play()
         setupButtons()
         setupStackViews()
@@ -37,12 +33,13 @@ class MenuViewController: Main {
         updateUI(to: view.bounds.size)
     }
     
-    @objc func optionButtonPressed() {
-        playButtonSound()
-        navigationController?.pushViewController(OptionsViewController(), animated: false)
-    }
-    @objc func startButtonPressed() {
-        playButtonSound()
-        navigationController?.pushViewController(ThemeViewController(), animated: false)
+
+    @objc private func buttonPressed(_ sender: UIButton) {
+           playButtonSound()
+        if sender.titleLabel?.text == "Начать игру" {
+            navigationController?.pushViewController(ThemeViewController(), animated: false)
+        } else {
+            navigationController?.pushViewController(OptionsViewController(), animated: false)
+        }
     }
 }

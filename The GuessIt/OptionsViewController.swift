@@ -6,17 +6,13 @@
 //
 
 import UIKit
-import AVFoundation
 
-/// Controller for Setup the Music Options (Music/Effectins) in the App
-class OptionsViewController: Main {
+/// Controller for Setup the Music Options (Music/Effects) in the App
+class OptionsViewController: BaseViewController {
     
     //MARK: - Properties
-    let voliumeLabel =        UILabel()
-    let musicSwitch =       UISwitch()
-    let buttonVoliumeLabel =  UILabel()
-    let soundEffectSwitch = UISwitch()
-    let stackView =           UIStackView()
+    let optionsTitles = ["Музыка", "Эффекты"]
+    let stackView = UIStackView()
     
     //MARK: - Methods
     override func viewDidLoad() {
@@ -28,11 +24,7 @@ class OptionsViewController: Main {
     }
     
     private func createStackView() {
-        setupOptinoStackView()
-        stackView.addArrangedSubview(voliumeLabel)
-        stackView.addArrangedSubview(musicSwitch)
-        stackView.addArrangedSubview(buttonVoliumeLabel)
-        stackView.addArrangedSubview(soundEffectSwitch)
+        setupOptionsStackView()
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
         stackView.alignment = .center
@@ -40,43 +32,43 @@ class OptionsViewController: Main {
         updateStackView(with: view.frame.size)
     }
     
-    private func setupOptinoStackView() {
-        //TODO: добавить размер switch от размера экрана
-
-        let labels = [voliumeLabel, buttonVoliumeLabel]
-        let labelsText = ["Музыка", "Эффекты"]
-        let switchers = [musicSwitch, soundEffectSwitch]
+    /// Create And Setup Labels and Switchers in Option Controller
+    private func setupOptionsStackView() {
         
         //Setup Each Option Label
-        for i in 0..<labels.count {
-            labels[i].text = labelsText[i]
-            labels[i].textColor = .black
-            labels[i].font = UIFont(name: "Rockin\'-Record", size: Main.fontScaler + 5)
+        for title in optionsTitles {
+            let label = UILabel()
+            label.text = title
+            label.textColor = .black
+            label.font = UIFont(name: customFont, size: BaseViewController.fontScaler + 5)
+            stackView.addArrangedSubview(label)
+            
+            //Setup Each Switcher
+            let switcher = UISwitch()
+            switcher.onTintColor = .black
+            switcher.thumbTintColor = .yellow
+            switcher.accessibilityIdentifier = title
+            switcher.addTarget(self, action: #selector(didChangeSwitcher), for: .valueChanged)
+            stackView.addArrangedSubview(switcher)
+            
+            //Setup current Switcher Status
+            if switcher.accessibilityIdentifier == "Музыка" {
+                switcher.isOn = BaseViewController.musicIsOn
+            } else {
+                switcher.isOn = BaseViewController.effectsIsOn
+            }
         }
-        //Setup Each Switcher
-        for index in 0..<switchers.count {
-            switchers[index].onTintColor = .black
-            switchers[index].thumbTintColor = .yellow
-            //switcher.backgroundColor = .red
-            //switcher.layer.cornerRadius = 16
-           // switcher.layer.masksToBounds = false
-            switchers[index].accessibilityIdentifier = labelsText[index]
-            switchers[index].addTarget(self, action: #selector(didChangeSwitcher), for: .valueChanged)
-        }
-        //Setup current Switcher Status
-        musicSwitch.isOn = Main.musicIsOn
-        soundEffectSwitch.isOn = Main.effecttsIsOn
     }
     @objc private func didChangeSwitcher(_ sender: UISwitch) {
         
         //Turn On/Off the Background Music
         if sender.accessibilityIdentifier == "Музыка" {
-            if sender.isOn == false {Music.sharedInstance.stop()}
-            else {Music.sharedInstance.play()}
-            Main.musicIsOn.toggle()
+            if sender.isOn == false { Music.sharedInstance.stop() }
+            else { Music.sharedInstance.play() }
+            BaseViewController.musicIsOn.toggle()
         } else {
-        //Turn On/Off the sound effects
-            Main.effecttsIsOn.toggle()
+            //Turn On/Off the sound effects
+            BaseViewController.effectsIsOn.toggle()
         }
     }
     
@@ -86,7 +78,7 @@ class OptionsViewController: Main {
                                  width: size.width / 2 ,
                                  height: size.height / 2 )
     }
-
+    
     override func updateUI(to size: CGSize) {
         updateReturnButton()
         updateStackView(with: size)

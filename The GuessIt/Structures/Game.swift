@@ -20,7 +20,7 @@ struct Game {
         for letter in currentWord {
             if guessedLetters.contains(Character(letter.lowercased())) || letter == "-" || letter == " " {
                 wordToDisplay += String(letter)
-            } else {wordToDisplay += "_"}
+            } else { wordToDisplay += "_" }
         }
         return wordToDisplay
     }

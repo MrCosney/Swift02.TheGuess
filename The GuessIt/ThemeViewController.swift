@@ -6,12 +6,11 @@
 //
 
 import UIKit
-import AVFoundation
 
 
 /// Controller for Setup the Theme Of the Words in the Game
-class ThemeViewController: Main {
-
+class ThemeViewController: BaseViewController {
+    
     var viewButtons: [UIButton] = []
     
     override func viewDidLoad() {
@@ -34,11 +33,11 @@ class ThemeViewController: Main {
     
     /// Setup the game Theme
     /// - Parameter sender: Button with the Game Theme
-    @objc func buttonPressed(_ sender: UIButton) {
+    @objc private func buttonPressed(_ sender: UIButton) {
         switch sender.titleLabel?.text {
-        case "Столицы": Main.listOfWords = Words.capitals
-        case "Автомобили": Main.listOfWords = Words.auto
-        case "Покемоны": Main.listOfWords = Words.pokemons
+        case "Столицы": BaseViewController.listOfWords = Words.capitals
+        case "Автомобили": BaseViewController.listOfWords = Words.auto
+        case "Покемоны": BaseViewController.listOfWords = Words.pokemons
         default: fatalError()
         }
         
