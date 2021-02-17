@@ -11,7 +11,7 @@ This version of the game features 3 word themes:
 The interface is very simple and intuitive. 
  - **Settings Menu**: *here you can turn on/off background music and button sounds.*
  - **Theme Selection Menu**: *Here you can choose the theme of the words to play.*
- - **Complexity Selection Menu**: *here you can choose the complexity of the game (This will affect the number of guess attempts).* 
+ - **Complexity Selection Menu**: *here you can choose the complexity of the game (**This will affect the number of guess attempts**).* 
 
 <img src="https://github.com/MrCosney/Swift02.TheGuess/blob/main/Screenshots/ScreenShot0.png" width="150"> <img src="https://github.com/MrCosney/Swift02.TheGuess/blob/main/Screenshots/ScreenShot3.png" width="150"> <img src="https://github.com/MrCosney/Swift02.TheGuess/blob/main/Screenshots/ScreenShot1.png" width="150"><img src="https://github.com/MrCosney/Swift02.TheGuess/blob/main/Screenshots/ScreenShot4.png" width="150"><img src="https://github.com/MrCosney/Swift02.TheGuess/blob/main/Screenshots/ScreenShot5.png" width="150"> 
 
