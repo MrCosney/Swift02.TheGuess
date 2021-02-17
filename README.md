@@ -13,7 +13,7 @@ The interface is very simple and intuitive.
  - **Theme Selection Menu**: *Here you can choose the theme of the words to play.*
  - **Complexity Selection Menu**: *here you can choose the complexity of the game (This will affect the number of guess attempts).* 
 
-<img src="https://github.com/MrCosney/Swift02.TheGuess/blob/main/Screenshots/ScreenShot0.png" width="175"> <img src="https://github.com/MrCosney/Swift02.TheGuess/blob/main/Screenshots/ScreenShot1.png" width="175"> <img src="https://github.com/MrCosney/Swift02.TheGuess/blob/main/Screenshots/ScreenShot3.png" width="175"><img src="https://github.com/MrCosney/Swift02.TheGuess/blob/main/Screenshots/ScreenShot4.png" width="175"><img src="https://github.com/MrCosney/Swift02.TheGuess/blob/main/Screenshots/ScreenShot5.png" width="175"> 
+<img src="https://github.com/MrCosney/Swift02.TheGuess/blob/main/Screenshots/ScreenShot0.png" width="175"> <img src="https://github.com/MrCosney/Swift02.TheGuess/blob/main/Screenshots/ScreenShot3.png" width="175"> <img src="https://github.com/MrCosney/Swift02.TheGuess/blob/main/Screenshots/ScreenShot1.png" width="175"><img src="https://github.com/MrCosney/Swift02.TheGuess/blob/main/Screenshots/ScreenShot4.png" width="175"><img src="https://github.com/MrCosney/Swift02.TheGuess/blob/main/Screenshots/ScreenShot5.png" width="175"> 
 
 ## Game Process
 Depending on the complexity of the game, you will have a limited number of attempts to guess the word (7/6/5).
