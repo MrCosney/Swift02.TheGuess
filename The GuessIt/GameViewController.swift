@@ -125,8 +125,8 @@ class GameViewController: BaseViewController {
         let image = "Doodle\(imageNumber)"
         imageView.image = UIImage(named: image)
         updateCorrectWordLabel()
-        scoreLabel.font = UIFont.boldSystemFont(ofSize: BaseViewController.fontScaler)
-        scoreLabel.text = "Побед: \(totalWins).   Поражений: \(totalLosses)"
+        scoreLabel.font = UIFont(name: customFont, size: BaseViewController.fontScaler)
+        scoreLabel.text = "Побед: \(totalWins)   |   Поражений:  \(totalLosses)"
     }
     
     /// Update the current User's Wins Losses status
