@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "returnButton1x.pdf",
+      "filename" : "returnButton3x.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "returnButton2x.pdf",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "returnButton3x.pdf",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -157,8 +157,8 @@ class GameViewController: BaseViewController {
         let image = "Doodle\(imageNumber)"
         imageView.image = UIImage(named: image)
         updateCorrectWordLabel()
-        scoreLabel.font = UIFont(name: customFont, size: BaseViewController.fontScaler)
-        scoreLabel.text = "Побед: \(totalWins)   |   Поражений:  \(totalLosses)"
+        scoreLabel.font = UIFont(name: customFont, size: BaseViewController.fontScaler - 5)
+        scoreLabel.text = "Побед: \(totalWins)  |  Поражений: \(totalLosses)"
     }
     
     /// Update the current User's Wins Losses status
@@ -167,7 +167,7 @@ class GameViewController: BaseViewController {
             totalLosses += 1
         } else if currentRound.guessedWord == currentRound.currentWord {
             totalWins += 1
-        } else {updateGameInterface()}
+        } else { updateGameInterface() }
     }
     
     override func updateUI(to size: CGSize) {

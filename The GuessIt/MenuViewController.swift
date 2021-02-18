@@ -32,9 +32,9 @@ class MenuViewController: BaseViewController {
             button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         }
     }
-
+    
     @objc private func buttonPressed(_ sender: UIButton) {
-           playButtonSound()
+        playButtonSound()
         if sender.titleLabel?.text == "Начать игру" {
             navigationController?.pushViewController(ThemeViewController(), animated: false)
         } else {

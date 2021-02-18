@@ -1,12 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "mainImage.pdf",
+      "filename" : "Doodle6.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "mainImage2x.pdf",
       "idiom" : "universal",
       "scale" : "2x"
     },

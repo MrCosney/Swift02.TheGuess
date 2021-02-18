@@ -41,7 +41,7 @@ class BaseViewController: UIViewController {
         super.viewWillTransition(to: size, with: coordinator)
         updateUI(to: size)
     }
-   
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
