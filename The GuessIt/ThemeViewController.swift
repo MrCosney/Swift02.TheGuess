@@ -10,9 +10,10 @@ import UIKit
 
 /// Controller for Setup the Theme Of the Words in the Game
 class ThemeViewController: BaseViewController {
-    
+    //MARK: - Properties
     var viewButtons: [UIButton] = []
     
+    //MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(topStackView)
@@ -22,6 +23,7 @@ class ThemeViewController: BaseViewController {
         updateUI(to: view.bounds.size)
     }
     
+    /// Create And Setup Interface Buttons
     private func setupButtons() {
         createButtons(buttons: &viewButtons, titles: Words.themesButtons)
         for button in viewButtons {

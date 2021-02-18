@@ -30,17 +30,33 @@ class BaseViewController: UIViewController {
     }
     
     //MARK: - Methods
+    
+    //MARK: - Navigation and Transition Configuration
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        updateUI(to: size)
+    }
+   
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
     //MARK: - Create and Setup Return Button
     func createReturnButton() {
         returnButton.setBackgroundImage(UIImage(named: "returnButton"), for: [])
         view.addSubview(returnButton)
-        updateReturnButton()
+        updateReturnButton(to: view.bounds.size)
         returnButton.addTarget(self, action: #selector(returnButtonPressed), for: .touchUpInside)
     }
     
-    func updateReturnButton() {
-        let sizeScaler = min(view.bounds.size.width, view.bounds.size.height)
-        returnButton.frame = CGRect(x: 25, y: 25, width: sizeScaler / 5, height: sizeScaler / 5)
+    func updateReturnButton(to size: CGSize) {
+        let sizeScaler = min(size.width, size.height)
+        returnButton.frame = CGRect(x: 25, y: 25, width: sizeScaler / 7, height: sizeScaler / 7)
     }
     
     @objc open func returnButtonPressed() {
@@ -51,6 +67,7 @@ class BaseViewController: UIViewController {
     func updateUI(to size: CGSize) {
         topStackView.axis = size.height < size.width ? .horizontal: .vertical
         topStackView.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        updateReturnButton(to: size)
     }
     
     //MARK: - Setup Stack Views
@@ -100,20 +117,5 @@ class BaseViewController: UIViewController {
         // Check if Option Effects Switch Is on
         guard BaseViewController.effectsIsOn else { return }
         SoundEffects.sharedInstance.play()
-    }
-    
-    //MARK: - Navigation and Transition Configuration
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        updateUI(to: size)
-    }
-   
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 }

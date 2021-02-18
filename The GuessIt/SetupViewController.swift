@@ -9,9 +9,10 @@ import UIKit
 
 /// Controller for Setup the Complexity of the Game
 class SetupViewController: BaseViewController {
-    
+    //MARK: - Properties
     var viewButtons: [UIButton] = []
     
+    //MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(topStackView)
@@ -21,6 +22,7 @@ class SetupViewController: BaseViewController {
         updateUI(to: view.bounds.size)
     }
     
+    /// Create And Setup Interface Buttons
     private func setupButtons() {
         createButtons(buttons: &viewButtons, titles: Words.complexityButtons)
         for button in viewButtons {

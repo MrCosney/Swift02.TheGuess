@@ -13,14 +13,6 @@ class MenuViewController: BaseViewController {
     var viewButtons: [UIButton] = []
     
     //MARK: - Methods
-    /// Create And Setup Interface Buttons
-    private func setupButtons() {
-        createButtons(buttons: &viewButtons, titles: Words.menuButtons)
-        for button in viewButtons {
-            button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         //Calculate Font Size For Button's labels
@@ -33,6 +25,13 @@ class MenuViewController: BaseViewController {
         updateUI(to: view.bounds.size)
     }
     
+    /// Create And Setup Interface Buttons
+    private func setupButtons() {
+        createButtons(buttons: &viewButtons, titles: Words.menuButtons)
+        for button in viewButtons {
+            button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        }
+    }
 
     @objc private func buttonPressed(_ sender: UIButton) {
            playButtonSound()

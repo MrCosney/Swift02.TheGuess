@@ -72,6 +72,7 @@ class OptionsViewController: BaseViewController {
         }
     }
     
+    //MARK: - Update Interface
     private func updateStackView(with size: CGSize) {
         stackView.frame = CGRect(x: size.width / 4 ,
                                  y: size.height / 4,
@@ -80,7 +81,7 @@ class OptionsViewController: BaseViewController {
     }
     
     override func updateUI(to size: CGSize) {
-        updateReturnButton()
+        updateReturnButton(to: size)
         updateStackView(with: size)
     }
 }
