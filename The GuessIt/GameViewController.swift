@@ -99,7 +99,6 @@ class GameViewController: BaseViewController {
         }
         if enable == false {
             showRefreshMenu()
-            
         }
     }
     
