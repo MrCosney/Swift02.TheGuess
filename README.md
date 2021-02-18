@@ -11,9 +11,10 @@ This version of the game features 3 word themes:
 The interface is very simple and intuitive. 
  - **Settings Menu**: *here you can turn on/off background music and button sounds.*
  - **Theme Selection Menu**: *Here you can choose the theme of the words to play.*
- - **Complexity Selection Menu**: *here you can choose the complexity of the game (**This will affect the number of guess attempts**).* 
+ - **Complexity Selection Menu**: *here you can choose the complexity of the game (**This will affect the number of guess attempts**).*
+ - **Restart Menu**: *After guessing all the words, the game restart screen appears.*
 
-<img src="https://github.com/MrCosney/Swift02.TheGuess/blob/main/Screenshots/ScreenShot0.png" width="150"> <img src="https://github.com/MrCosney/Swift02.TheGuess/blob/main/Screenshots/ScreenShot3.png" width="150"> <img src="https://github.com/MrCosney/Swift02.TheGuess/blob/main/Screenshots/ScreenShot1.png" width="150"><img src="https://github.com/MrCosney/Swift02.TheGuess/blob/main/Screenshots/ScreenShot4.png" width="150"><img src="https://github.com/MrCosney/Swift02.TheGuess/blob/main/Screenshots/ScreenShot5.png" width="150"> 
+<img src="https://github.com/MrCosney/Swift02.TheGuess/blob/main/Screenshots/ScreenShot0.png" width="150"> <img src="https://github.com/MrCosney/Swift02.TheGuess/blob/main/Screenshots/ScreenShot3.png" width="150"> <img src="https://github.com/MrCosney/Swift02.TheGuess/blob/main/Screenshots/ScreenShot1.png" width="150"><img src="https://github.com/MrCosney/Swift02.TheGuess/blob/main/Screenshots/ScreenShot4.png" width="150"><img src="https://github.com/MrCosney/Swift02.TheGuess/blob/main/Screenshots/ScreenShot9.png" width="150"> 
 
 ## Game Process
 Depending on the complexity of the game, you will have a limited number of attempts to guess the word (7/6/5).

@@ -183,7 +183,6 @@ class GameViewController: BaseViewController {
         view.addSubview(refreshButton)
         view.addSubview(refreshLabel)
         view.addSubview(returnButton)
-        
         updateRefreshMenu(to: view.bounds.size)
         
         //Setup Refresh Button
