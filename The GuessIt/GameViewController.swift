@@ -46,7 +46,6 @@ class GameViewController: BaseViewController {
         createLetterButtons()
         setupStackViews()
         setupBottomView()
-        createReturnButton()
         updateUI(to: view.bounds.size)
         newRound()
     }
@@ -114,6 +113,7 @@ class GameViewController: BaseViewController {
         currentRound = Game(word: newWord, movesRemaining: BaseViewController.incorrectMovesAllowed)
         updateGameInterface()
         enableButtons()
+        createReturnButton()
     }
     
     /// Insert Buttons And Labels in Bottom StackView
@@ -182,6 +182,7 @@ class GameViewController: BaseViewController {
         view.addSubview(blurEffect)
         view.addSubview(refreshButton)
         view.addSubview(refreshLabel)
+        view.addSubview(returnButton)
         
         updateRefreshMenu(to: view.bounds.size)
         
@@ -230,6 +231,7 @@ class GameViewController: BaseViewController {
         blurEffect.removeFromSuperview()
         refreshButton.removeFromSuperview()
         refreshLabel.removeFromSuperview()
+        returnButton.removeFromSuperview()
         
         //Refresh List of Words and Start the New Game
         listOfWords = BaseViewController.listOfWords.shuffled()
