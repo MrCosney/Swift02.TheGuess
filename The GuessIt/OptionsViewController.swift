@@ -65,10 +65,12 @@ class OptionsViewController: BaseViewController {
         if sender.accessibilityIdentifier == "Музыка" {
             if sender.isOn == false { Music.sharedInstance.stop() }
             else { Music.sharedInstance.play() }
+            playButtonSound()
             BaseViewController.musicIsOn.toggle()
         } else {
             //Turn On/Off the sound effects
             BaseViewController.effectsIsOn.toggle()
+            playButtonSound()
         }
     }
     

@@ -46,7 +46,7 @@ class SoundEffects {
         guard let url = Bundle.main.url(forResource: "buttonClick", withExtension: "mp3") else { return }
         
         do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.soloAmbient)
             try AVAudioSession.sharedInstance().setActive(true)
             
             player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
